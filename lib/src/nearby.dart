@@ -315,7 +315,7 @@ class Nearby {
   }
 
   /// Send bytes [Uint8List] payload to endpoint
-  ///
+  /// Returns the payloadID
   /// Convert String to Uint8List as follows -
   ///
   /// ```dart
@@ -328,7 +328,7 @@ class Nearby {
   /// String str = String.fromCharCodes(payload.bytes);
   /// ```
   ///
-  Future<void> sendBytesPayload(String endpointId, Uint8List bytes) async {
+  Future<int> sendBytesPayload(String endpointId, Uint8List bytes) async {
     return await _channel.invokeMethod(
       'sendPayload',
       <String, dynamic>{
